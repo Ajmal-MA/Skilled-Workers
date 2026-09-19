@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Worker Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/worker_dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, {{ profile.user.username }}</h2>
+     <p class="section__description" style="text-align:center; color:#555; margin-bottom: 2rem;">
+        Manage your profile, works, and explore works near you.
+    </p>
+    <!-- Popup Message -->
+{% if messages %}
+<div id="popup" class="popup-message">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+
+    <!-- Worker Info -->
+    <div class="card p-3 mb-3">
+        <h4>Your Profile</h4>
+        <p><b>Phone:</b> {{ profile.phone }}</p>
+        <p><b>Location:</b> {{ profile.location }}</p>
+        <p><b>Bio:</b> {{ profile.bio }}</p>
+        <a href="{% url 'create_or_update_profile' %}" class="btn btn-primary btn-sm">Edit Profile</a>
+    </div>
+
+    <!-- Previous Works -->
+    <div class="card p-3 mb-3">
+        <h4>Previous Works</h4>
+        {% if previous_works %}
+            <ul>
+                {% for work in previous_works %}
+                <li>
+                    <b>{{ work.title }}</b> - {{ work.description }}
+                    {% if work.image %}
+                        <br><img src="{{ work.image.url }}" alt="Work image" style="max-width:150px;">
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No previous works uploaded yet.</p>
+        {% endif %}
+        <a href="{% url 'upload_previous_work' %}" class="btn btn-success btn-sm">Add Work</a>
+    </div>
+
+    <!-- Reviews -->
+    <div class="card p-3 mb-3">
+        <h4>Reviews from Customers</h4>
+        {% if reviews %}
+            {% for review in reviews %}
+                <p><b>{{ review.customer.username }}</b> rated {{ review.rating }}/5 <br>
+                {{ review.comment }}</p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No reviews yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Bookings -->
+    <div class="card p-3 mb-3">
+        <h4>Customer Bookings</h4>
+        {% if bookings %}
+            <ul class="list-group">
+                {% for booking in bookings %}
+                <li class="list-group-item">
+                    <b>{{ booking.service_type }}</b> ({{ booking.get_status_display }}) <br>
+                    <b>Description:</b> {{ booking.description }} <br>
+                    <b>Date:</b> {{ booking.booking_date }} <br>
+                    <b>Location:</b> {{ booking.location }} <br>
+
+                    <!-- Customer Info -->
+                    <h6>Customer Info:</h6>
+                    <b>Name:</b> {{ booking.customer.customerprofile.full_name }} <br>
+                    <b>Phone:</b> {{ booking.customer.customerprofile.phone }} <br>
+                    <b>Place:</b> {{ booking.customer.customerprofile.place }} <br>
+                    <b>Address:</b> {{ booking.customer.customerprofile.address }}
+                    <!-- View Customer Profile Button -->
+                    <a href="{% url 'view_customer_profile' booking.customer.id %}" 
+                        class="btn btn-info btn-sm mt-2">
+                        View Customer Profile
+                    </a>
+
+                    
+
+                    <!-- Status Buttons -->
+                    <div class="mt-2">
+                        {% if booking.status == "pending" %}
+                            <a href="{% url 'update_booking_status' booking.id 'accepted' %}" class="btn btn-success btn-sm">Accept</a>
+                        {% elif booking.status == "accepted" %}
+                            <a href="{% url 'update_booking_status' booking.id 'ongoing' %}" class="btn btn-primary btn-sm">Start</a>
+                        {% elif booking.status == "ongoing" %}
+                            <a href="{% url 'update_booking_status' booking.id 'underprocess' %}" class="btn btn-warning btn-sm">Under Process</a>
+                        {% elif booking.status == "underprocess" %}
+                            <a href="{% url 'update_booking_status' booking.id 'completed' %}" class="btn btn-dark btn-sm">Complete</a>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No bookings yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="section__container footer_container">
+        <div class="footer_col">
+            <div class="footer_logo">
+                <a href="#" class="logo">Skilled <span>Worker</span></a>
+            </div>
+            <p>
+            Our Platform is designed to help you find the perfect Workers and
+            achieve your professional dreams.
+            </p>
+        </div>
+        <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Whatsapp</a></li>
+            </ul>
+        </div>
+         <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer_col">
+            <h4>Contact Us</h4>
+            <ul class="footer_links">
+                <li>
+                    <a href="#">
+                        <span><i class="ri-phone-fill"></i></span> +91 9544825244
+                    </a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+                        Anytown, Kerala
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_bar">
+        <p>Copyright © 2025 WorkConnect. All Rights Reserved.</p>
+
+    </div>
+</footer>
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/worker.js' %}"></script>
+
+
+{% endblock %}
+

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Online Work from Home | SkilledWorker{% endblock %}</title>
+
+    <!-- Remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav_header">
+            <div class="nav_logo">
+                <a href="{% url 'home' %}" class="logo">Skilled<span>Worker</span></a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="nav_menu_btn" id="menu-btn">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+
+        <ul class="nav_links" id="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'service' %}">Services</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+
+            {% if user.is_authenticated %}
+                {% if user.profile.role == "customer" %}
+                    <li><a href="{% url 'customer_dashboard' %}">Dashboard</a></li>
+                {% elif user.profile.role == "worker" %}
+                    <li><a href="{% url 'worker_dashboard' %}">Dashboard</a></li>
+                {% endif %}
+                <li><a href="{% url 'logout' %}"><button class="btn">Logout</button></a></li>
+            {% else %}
+                <li><a href="{% url 'login_page' %}"><button class="btn">Login</button></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- MESSAGES -->
+    <div class="container mt-4">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- PAGE CONTENT -->
+    {% block content %}{% endblock %}
+
+    <!-- JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

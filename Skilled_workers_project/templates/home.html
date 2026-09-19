@@ -1,0 +1,443 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - skilledworker{% endblock %}
+
+ {% block extra_css %}
+
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+ <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+ {% endblock %}
+
+{% block content %}
+<header class="section_container header_container" id="home">
+    <img src="{% static 'image/repairing.png' %}" alt="header"/>
+    <img src="{% static 'image/paintbrush.png' %}" alt="header"/>
+    <img src="{% static 'image/welding.png' %}" alt="header"/>
+    <img src="{% static 'image/flash.png' %}" alt="header"/>
+    <img src="{% static 'image/wrench.png' %}" alt="header"/>
+    <img src="{% static 'image/engineer.png' %}" alt="header"/>
+    <h2>
+        <img src="{% static 'image/worker.png' %}" alt="header"/>
+        No.1 Skilled workers Website
+    </h2>
+    <h1>Search, Book &<br>Get your <span>Worker</span></h1>
+    <p>
+        Skilled Worker is an online platfrom that connects customers with verified 
+        and experienced workers for painting,plumbing,welding, and more.Book reliable
+        workers or register as a worker to find job
+    </p>
+    <div class="header_btns">
+        
+    </div>
+</header>
+
+
+<section class="steps" id="about">
+    <div class="section__container">
+        <h2 class="section__header">
+            Get Workers in 4 <span>Quick Easy Steps</span>
+        </h2>
+            <p class="section__description">
+              Follow our simple, step-by-step guide to connect seamlessly—whether 
+              you’re booking trusted workers or offering your skills.
+            </p>
+            <div class="steps_grid">
+                <div class="steps_card">
+                    <span><i class="ri-user-fill"></i></span>
+                    <h4>Create an Account</h4>
+                    <p>
+                      Sign up with just a few clicks to unlock opportunities—whether
+                       you’re looking for work or trusted services.
+                    </p>
+                </div>
+                <div class="steps_card">
+                    <span><i class="ri-search-fill"></i></span>
+                    <h4>Search&Discover</h4>
+                    <p>
+                       Explore our tailored database with smart filters to 
+                       easily find what you’re looking for, anytime.
+                    </p>
+                </div>
+                <div class="steps_card">
+                    <span><i class="ri-file-paper-fill"></i></span>
+                    <h4>Showcase & Trust</h4>
+                    <p>
+                      Showcase your profile, skills, or needs—helping others
+                       see why you’re the perfect choice
+                    </p>
+                </div>
+                <div class="steps_card">
+                    <span><i class="ri-briefcase-fill"></i></span>
+                    <h4>Get Works</h4>
+                    <p>
+                      Showcase your profile, skills, or needs—helping others
+                       see why you’re the perfect choice
+                    </p>
+                </div>
+            </div>
+    </div>
+</section>
+
+<section class="section__container explore_container">
+    <h2 class="section__header">
+        <span>Countless Work Options</span> Are Waiting For You To Explore
+    </h2>
+    <p class="section__description">
+       Discover a world of opportunities and endless possibilities — connect 
+       with trusted workers or find the perfect job to shape your future.
+    </p>
+    <div class="explore_grid">
+        <div class="explore_card">
+            <span><i class="ri-paint-brush-fill"></i></i></span>
+            <h4>Painting</h4>
+            <p>200+ Skilled Painters Ready to Transform Your Space</p>
+        </div>
+         <div class="explore_card">
+            <span><i class="ri-flashlight-line"></i></span>
+            <h4>Electricition</h4>
+            <p>350+ Experts Available for Safe and Reliable Service</p>
+        </div>
+         <div class="explore_card">
+            <span><i class="ri-tools-fill"></i></span>
+            <h4>Plumbing</h4>
+            <p>250+ Experienced Plumbers at Your Service</p>
+        </div>
+         <div class="explore_card">
+            <span><i class="ri-hammer-fill"></i></span>
+            <h4>Fabrication</h4>
+            <p>150+ Skilled Fabricators for Custom Metal & Wood Work</p>
+        </div>
+         <div class="explore_card">
+            <span><i class="ri-building-fill"></i></span>
+            <h4>Construction</h4>
+            <p>250+ Workers for Renovations, Repairs, and New Builds</p>
+        </div>
+        <div class="explore_card">
+            <span><i class="ri-hammer-fill"></i></span>
+            <h4>Welding</h4>
+            <p>180+ Welders Ready for Your Projects</p>
+        </div>
+        <div class="explore_card">
+            <span><i class="ri-hand-coin-fill"></i></span>
+            <h4>Carpentry</h4>
+            <p>220+ Expert Carpenters for Quality Woodwork</p>
+        </div>
+        <div class="explore_card">
+            <span><i class="ri-home-4-line"></i></span>
+            <h4>Cleaning</h4>
+            <p>300+ Professional Cleaners for Homes & Offices</p>
+        </div>
+    </div>
+   
+</section>
+
+<section class="section__container job_container" id="job">
+    <h2 class="section__header"><span>Explore Skilled</span>Worker Opportunities</h2>
+    <p class="section__description">
+        Discover Exciting Work Opportunities and In-Demand 
+        Services Available Now from Skilled Professionals Near You.
+    </p>
+    <div class="job_grid">
+        <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/paint-roller.png' %}" alt="Painting Service">
+                <div>
+                    <h5>Painting Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Professional House Painter</h4>
+            <p>
+                Skilled painters ready to transform your space with quality finishes and reliable service.
+                Book now for a clean, vibrant look for your home or office.
+            </p>
+            <div class="job_card_footer">
+                <span>25 workers available</span>
+                <span>On-Demand</span>
+                <span>Starts from ₹1500/day</span>
+            </div>
+        </div>
+         <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/lightning.png' %}" alt="job">
+                <div>
+                    <h5>Electrician Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Certified Electrical Expert</h4>
+            <p>
+               Experienced electricians for wiring, repairs, and installations. 
+               Quick and reliable service for homes and offices.
+            </p>
+            <div class="job_card_footer">
+                <span>40 workers available</span>
+                <span>24/7 Service</span>
+                <span>Starts from ₹1200/day</span>
+            </div>
+        </div>
+         <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/car.png' %}" alt="job">
+                <div>
+                    <h5>Plumbing Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Expert Plumber</h4>
+            <p>
+                 Fix leaks, install fittings, and maintain your water systems 
+                 with skilled and verified plumbers near you.
+            </p>
+            <div class="job_card_footer">
+                <span>35 workers available</span>
+                <span>On-Demand</span>
+                <span>Starts from ₹1000/day</span>
+            </div>
+        </div>
+         <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/tool.png' %}" alt="job">
+                <div>
+                    <h5>Carpendry Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Professional Carpenter</h4>
+            <p>
+                 Get customized furniture, repairs, and installations done 
+                 with experienced carpenters for your home or workspace.
+            </p>
+            <div class="job_card_footer">
+                <span>15 workers available</span>
+                <span>On-Demand</span>
+                <span>Starts from ₹1200/day</span>
+            </div>
+        </div>
+         <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/welder.png' %}" alt="job">
+                <div>
+                    <h5>Welding Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Professional welder</h4>
+            <p>
+                 Skilled welders providing quality metal fabrication, repair, and installation 
+                 services for residential and industrial needs.
+            </p>
+            <div class="job_card_footer">
+                <span>18 workers available</span>
+                <span>On-Demand</span>
+                <span>Starts from ₹1400/day</span>
+            </div>
+        </div>
+         <div class="job_card">
+            <div class="job_card_header">
+                <img src="{% static 'image/work.png' %}" alt="job">
+                <div>
+                    <h5>Construction Service</h5>
+                    <h6>Available in Your Area</h6>
+                </div>    
+            </div>
+            <h4>Experienced Constructor</h4>
+            <p>
+                Hire construction professionals for building, renovation, and 
+                maintenance projects with guaranteed quality and safety.
+            </p>
+            <div class="job_card_footer">
+                <span>30 workers available</span>
+                <span>Full time / Contract</span>
+                <span>Starts from ₹2000/day</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section__container offer_container" id="service">
+    <h2 class="section__header">What we <span>Offer</span></h2>
+    <p class="section__description">
+        Explore the Benefits and Services We Provide to Enhance Your job
+        and Carrer Success
+    </p>
+    <div class="offer_grid">
+        <div class="offer_card">
+            <img src="{% static 'image/offer1.jpg' %}" alt="offer">
+            <div class="offer_details">
+                <span>01</span>
+                <div>
+                    <h4>Quick Service Booking</h4>
+                    <p>
+                         Easily find and book skilled workers near you for any home or office task within minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+         <div class="offer_card">
+            <img src="{% static 'image/offer2.jpg' %}" alt="offer">
+            <div class="offer_details">
+                <span>02</span>
+                <div>
+                    <h4>Verified & Trusted Workers</h4>
+                    <p>
+                         All our workers are background-checked and verified to ensure safe and reliable service.
+                    </p>
+                </div>
+            </div>
+        </div>
+         <div class="offer_card">
+            <img src="{% static 'image/offer3.jpg' %}" alt="offer">
+            <div class="offer_details">
+                <span>03</span>
+                <div>
+                    <h4>Affordable Pricing</h4>
+                    <p>
+                       Get high-quality services at transparent and budget-friendly prices, with no hidden costs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section__container client_container" id="client">
+    <h2 class="section__header">What Our <span>Workers Say</span></h2>
+    <p class="section__description">
+        Hear from our happy customers and skilled workers who have experienced 
+        quick bookings, trusted services, and successful collaborations through our platform.
+    </p>
+    <div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+        <div class="client_card">
+            <img src="{% static 'image/worker123.jpg' %}" alt="worker">
+            <p>
+               This platform helped me find regular painting jobs in my area. 
+               It’s simple to use, and I can showcase my work and get trusted clients easily. 
+               Really boosted my career!
+            </p>
+            <div class="client_ratings">
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+            </div>
+            <h4>Ajmal</h4>
+            <h5>Plumber</h5>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="client_card">
+            <img src="{% static 'image/customer123.jpg' %}" alt="123">
+            <p>
+               Booking a plumber through this platform was so easy and fast! 
+               The worker arrived on time and did an excellent job. 
+               I’ll definitely use this service again for future home repairs.
+            </p>
+            <div class="client_ratings">
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-half-fill"></i></span>
+            </div>
+            <h4>Afsal</h4>
+            <h5>Customer</h5>
+        </div>
+    </div>
+     <div class="swiper-slide">
+        <div class="client_card">
+            <img src="{% static 'image/cust123.jpg' %}" alt="client">
+            <p>
+               Booking an electrician was quick and easy. The worker was skilled 
+               and completed the job perfectly.
+               I’ll definitely book again when I need help at home.
+            </p>
+            <div class="client_ratings">
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-fill"></i></span>
+                <span><i class="ri-star-half-fill"></i></span>
+            </div>
+            <h4>haseena</h4>
+            <h5>customer</h5>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+    <div class="section__container footer_container">
+        <div class="footer_col">
+            <div class="footer_logo">
+                <a href="#" class="logo">Skilled <span>Worker</span></a>
+            </div>
+            <p>
+            Our Platform is designed to help you find the perfect Workers and
+            achieve your professional dreams.
+            </p>
+        </div>
+        <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Whatsapp</a></li>
+            </ul>
+        </div>
+         <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer_col">
+            <h4>Contact Us</h4>
+            <ul class="footer_links">
+                <li>
+                    <a href="#">
+                        <span><i class="ri-phone-fill"></i></span> +91 9544825244
+                    </a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+                        Anytown, Kerala
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_bar">
+        <p>Copyright © 2025 WorkConnect. All Rights Reserved.</p>
+
+    </div>
+</footer>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="{% static 'js/home.js' %}"></script>
+
+
+{% endblock %}
+
+
+

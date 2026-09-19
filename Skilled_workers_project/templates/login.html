@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login / Register | SkilledWorker{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="containers">
+    <!-- LOGIN FORM -->
+    <div class="form-box login">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <div class="input_box">
+                {{ login_form.username }}
+                <i class="ri-user-fill"></i>
+            </div>
+            <div class="input_box">
+                {{ login_form.password }}
+                <i class="ri-lock-fill"></i>
+            </div>
+            <button type="submit" name="login_submit" class="btn_sub">Login</button>
+        </form>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="form-box register">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Register</h1>
+            <div class="input_box">
+                {{ register_form.username }}
+                <i class="ri-user-fill"></i>
+            </div>
+            <div class="input_box">
+                {{ register_form.email }}
+                <i class="ri-mail-fill"></i>
+            </div>
+            <div class="input_box">
+                {{ register_form.password1 }}
+                <i class="ri-lock-fill"></i>
+            </div>
+            <div class="input_box">
+                {{ register_form.password2 }}
+                <i class="ri-lock-fill"></i>
+            </div>
+            <div class="input_box">
+                {{ register_form.role }} <!-- Customer / Worker -->
+            </div>
+            <button type="submit" name="register_submit" class="btn_sub">Register</button>
+        </form>
+    </div>
+
+    <!-- TOGGLE BOX -->
+    <div class="toggle-box">
+        <div class="toggle-pannel toggle-left">
+            <h1>Hello, Welcome!</h1>
+            <p>Don't have an account?</p>
+            <button class="btn_sub register-btn">Register</button>
+        </div>
+        <div class="toggle-pannel toggle-right">
+            <h1>Welcome Back!</h1>
+            <p>Already have an account?</p>
+            <button class="btn_sub login-btn">Login</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/log.js' %}"></script>
+{% endblock %}
+

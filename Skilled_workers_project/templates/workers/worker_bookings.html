@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Book Another Worker{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/worker_dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="card">
+        <h4>Book a Worker</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Service Type</label>
+                <select name="service_type" class="form-control" required>
+                    {% for skill in skills %}
+                        <option value="{{ skill.id }}">{{ skill.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" class="form-control" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Booking Date</label>
+                <input type="date" name="booking_date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" name="location" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn">Book Now</button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="section__container footer_container">
+        <div class="footer_col">
+            <div class="footer_logo">
+                <a href="#" class="logo">Skilled <span>Worker</span></a>
+            </div>
+            <p>
+            Our Platform is designed to help you find the perfect Workers and
+            achieve your professional dreams.
+            </p>
+        </div>
+        <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Whatsapp</a></li>
+            </ul>
+        </div>
+         <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer_col">
+            <h4>Contact Us</h4>
+            <ul class="footer_links">
+                <li>
+                    <a href="#">
+                        <span><i class="ri-phone-fill"></i></span> +91 9544825244
+                    </a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+                        Anytown, Kerala
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_bar">
+        <p>Copyright © 2025 WorkConnect. All Rights Reserved.</p>
+
+    </div>
+</footer>
+{% endblock %}

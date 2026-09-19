@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #6a38c2;
+    --primary-dark: #4b2590;
+    --secondary-color: #fbbc09;
+    --light-bg: #f9f9ff;
+    --text-dark: #262626;
+    --text-light: #737373;
+    --white: #fff;
+    --border-radius: 8px;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--light-bg);
+}
+
+/* ============ Dashboard Container ============ */
+.dashboard-container {
+    padding: 2rem 1rem;
+}
+
+.section__header {
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* ============ Cards ============ */
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ============ Forms ============ */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: var(--white);
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ============ Buttons ============ */
+.btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 15px;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #e63946;
+}
+
+.btn-danger:hover {
+    background-color: #c92a3e;
+}
+
+.btn-warning {
+    background-color: #fbbc09;
+    color: #222;
+}
+
+.btn-success {
+    background-color: #3ac2ba;
+}
+
+.btn-success:hover {
+    background-color: #2ea29b;
+}
+
+/* ============ Booking List ============ */
+.list-group {
+    list-style: none;
+    padding: 0;
+}
+
+.booking-item {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.booking-item strong {
+    color: var(--primary-color);
+}
+
+.status-badge {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+/* ============ Worker Cards ============ */
+.worker-card {
+    border: 1px solid #eee;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.worker-card:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-5px);
+}
+
+.worker-card h5 {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.worker-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.worker-card:hover p {
+    color: var(--white);
+}
+
+.worker-card img {
+    max-width: 100px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    border-radius: 100%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .dashboard-container {
+        padding: 3rem;
+    }
+}

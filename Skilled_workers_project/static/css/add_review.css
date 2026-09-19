@@ -1,0 +1,86 @@
+/* General page styling */
+body {
+    background-color: #f7f9fc;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container box */
+.container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Form labels */
+label {
+    font-weight: 500;
+    color: #555;
+}
+
+/* Input and select boxes */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    outline: none;
+}
+
+/* Rating dropdown */
+select.form-control {
+    cursor: pointer;
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: none;
+    min-height: 100px;
+}
+
+/* Submit button */
+.btn {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #218838;
+    transform: scale(1.02);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 30px 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}

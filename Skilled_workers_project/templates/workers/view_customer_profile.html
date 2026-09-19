@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Customer Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard_common.css' %}">
+<style>
+/* Additional styling specific to customer profile */
+.profile-card {
+    max-width: 600px;
+    margin: 3rem auto;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    padding: 2rem;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.back-btn {
+    margin-top: 1.5rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-card">
+        {% if customer.profile_photo %}
+            <img src="{{ customer.profile_photo.url }}" alt="Customer Photo" class="profile-photo">
+        {% else %}
+            <img src="{% static 'images/default-avatar.png' %}" alt="Default Photo" class="profile-photo">
+        {% endif %}
+
+        <h3 class="profile-name">{{ customer.full_name }}</h3>
+        <hr style="width: 60%; margin: 1rem auto; border: 1px solid rgba(0,0,0,0.1);">
+
+        <div class="profile-info">
+            <p><strong>📞 Phone:</strong> {{ customer.phone }}</p>
+            <p><strong>📍 Place:</strong> {{ customer.place }}</p>
+            <p><strong>🏠 Address:</strong> {{ customer.address }}</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{% url 'worker_dashboard' %}" class="btn btn-info">← Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

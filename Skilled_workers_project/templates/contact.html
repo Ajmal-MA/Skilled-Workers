@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact - SkilledWorker{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<style>
+.contact_section {
+  max-width: 900px;
+  margin: 4rem auto;
+  text-align: center;
+}
+.contact_form {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+.contact_form input,
+.contact_form textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--extra-light);
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+.contact_form button {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact_form button:hover {
+  background: var(--primary-color-dark);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="contact_section">
+  <h2 class="section__header">Get in <span>Touch</span></h2>
+  <p class="section__description">
+    Have questions, feedback, or service requests? Fill out the form below, and we’ll get back to you as soon as possible.
+  </p>
+
+  <form action="#" method="post" class="contact_form">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="subject" placeholder="Subject">
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer class="footer">
+    <div class="section__container footer_container">
+        <div class="footer_col">
+            <div class="footer_logo">
+                <a href="#" class="logo">Skilled <span>Worker</span></a>
+            </div>
+            <p>
+            Our Platform is designed to help you find the perfect Workers and
+            achieve your professional dreams.
+            </p>
+        </div>
+        <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Youtube</a></li>
+                <li><a href="#">Whatsapp</a></li>
+            </ul>
+        </div>
+         <div class="footer_col">
+            <h4>Follow Us</h4>
+            <ul class="footer_links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'service' %}">Service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+            </ul>
+        </div>
+        <div class="footer_col">
+            <h4>Contact Us</h4>
+            <ul class="footer_links">
+                <li>
+                    <a href="#">
+                        <span><i class="ri-phone-fill"></i></span> +91 9544825244
+                    </a>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span><i class="ri-map-pin-2-fill"></i></span> 123 Main Street,
+                        Anytown, Kerala
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_bar">
+        <p>Copyright © 2025 WorkConnect. All Rights Reserved.</p>
+
+    </div>
+</footer>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="{% static 'js/home.js' %}"></script>
+
+
+{% endblock %}
